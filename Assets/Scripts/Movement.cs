@@ -8,10 +8,12 @@ public class Movement : MonoBehaviour
 
     // cache
     Rigidbody _rigidbody;
+    AudioSource _audioSource;
 
     void Awake() 
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +28,15 @@ public class Movement : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
         {
             _rigidbody.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            
+            if(!_audioSource.isPlaying) 
+            {
+                _audioSource.Play();
+            }
+        }
+        else if(_audioSource.isPlaying)
+        {
+            _audioSource.Stop();
         }
 
     }
