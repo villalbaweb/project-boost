@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    // config
+    [SerializeField] float reloadDelay = 1f;
+
     private void OnCollisionEnter(Collision other) 
     {
         switch(other.gameObject.tag)
@@ -12,13 +15,24 @@ public class CollisionHandler : MonoBehaviour
                 break;
             
             case "Finish":
-                LoadNextLevel();
+                DisableMovementAndActionSequence("LoadNextLevel");
                 break;
 
             default:
-                ReloadLevel();
+                DisableMovementAndActionSequence("ReloadLevel");
                 break;
         }    
+    }
+
+    private void DisableMovementAndActionSequence(string action)
+    {
+        DisableMovement();
+        Invoke(action, reloadDelay);
+    }
+
+    private void DisableMovement()
+    {
+        GetComponent<Movement>().enabled = false;
     }
 
     private void LoadNextLevel()
