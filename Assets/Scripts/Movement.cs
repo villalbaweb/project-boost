@@ -5,7 +5,7 @@ public class Movement : MonoBehaviour
     // config
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 100f;
-    [SerializeField] AudioClip mainEngineSfx;
+    [SerializeField] AudioClip mainEngineSfx = null;
 
     // cache
     Rigidbody _rigidbody;
