@@ -5,6 +5,16 @@ public class CollisionHandler : MonoBehaviour
 {
     // config
     [SerializeField] float reloadDelay = 1f;
+    [SerializeField] AudioClip successSfx;
+    [SerializeField] AudioClip crashSfx;
+
+    // cache 
+    AudioSource _audioSource;
+
+    private void Awake() 
+    {
+        _audioSource = GetComponent<AudioSource>();    
+    }
 
     private void OnCollisionEnter(Collision other) 
     {
@@ -26,6 +36,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void DisableMovementAndActionSequence(string action)
     {
+        PlaySFX(action == "LoadNextLevel" ? successSfx : crashSfx);
         DisableMovement();
         Invoke(action, reloadDelay);
     }
@@ -47,5 +58,10 @@ public class CollisionHandler : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    private void PlaySFX(AudioClip audioClip)
+    {
+        _audioSource.PlayOneShot(audioClip);
     }
 }

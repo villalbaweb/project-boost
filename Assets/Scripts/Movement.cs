@@ -5,6 +5,7 @@ public class Movement : MonoBehaviour
     // config
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationThrust = 100f;
+    [SerializeField] AudioClip mainEngineSfx;
 
     // cache
     Rigidbody _rigidbody;
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
             
             if(!_audioSource.isPlaying) 
             {
-                _audioSource.Play();
+                _audioSource.PlayOneShot(mainEngineSfx);
             }
         }
         else if(_audioSource.isPlaying)
