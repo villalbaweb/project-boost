@@ -8,6 +8,9 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip successSfx = null;
     [SerializeField] AudioClip crashSfx = null;
 
+    [SerializeField] ParticleSystem successPartycles = null;
+    [SerializeField] ParticleSystem crashPartycles = null;
+
     // cache 
     AudioSource _audioSource;
 
@@ -42,6 +45,7 @@ public class CollisionHandler : MonoBehaviour
     private void DisableMovementAndActionSequence(string action)
     {
         isTransitioning = true;
+        PlayParticles(action == "LoadNextLevel" ? successPartycles : crashPartycles);
         PlaySFX(action == "LoadNextLevel" ? successSfx : crashSfx);
         DisableMovement();
         Invoke(action, reloadDelay);
@@ -70,5 +74,10 @@ public class CollisionHandler : MonoBehaviour
     {
         _audioSource.Stop();
         _audioSource.PlayOneShot(audioClip);
+    }
+
+    private void PlayParticles(ParticleSystem partycleSystem)
+    {
+        partycleSystem.Play();
     }
 }
