@@ -1178,6 +1178,25 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &2057741734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2452554115958144619, guid: efdce22d087b0e0438f9c737f801b4f3, type: 3}
+  m_PrefabInstance: {fileID: 2452554114189768342}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2057741735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057741734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fef69e492bc98948a108be39985209a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementFactor: 0
+  movementVector: {x: 50, y: 0, z: 0}
 --- !u!1 &2070757143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2452554115958144919, guid: efdce22d087b0e0438f9c737f801b4f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 2452554115958144919, guid: efdce22d087b0e0438f9c737f801b4f3, type: 3}
       propertyPath: m_LocalPosition.y
