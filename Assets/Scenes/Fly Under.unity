@@ -891,6 +891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementFactor: 0
   movementVector: {x: 0, y: -23, z: 0}
+  period: 10
 --- !u!1 &927235657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,6 +1405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementFactor: 0
   movementVector: {x: 0, y: 23, z: 0}
+  period: 10
 --- !u!1001 &5994810276813354111
 PrefabInstance:
   m_ObjectHideFlags: 0
